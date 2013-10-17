@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include ("includes/functions.php"); ?>
+<?php include ("includes/header.php"); ?>
+<?php include ("includes/footer.php"); ?>
+<?php include ("includes/menu.php"); ?>
 <html>
     <?php echo(head("Boyd's Used Motors")); ?>
 		
@@ -31,10 +33,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="finances.html">Finances</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
+							<?php echo menu("index"); ?>
 						</ul>
 					</div>
 				</div>
@@ -52,6 +51,24 @@
 					<p>We have been voted best car company in the UK by our employees 8 years running. <br/>Boyd's Used Motors has been running for over 13 years selling reliable used cars to the first person to walk in the door.</p>
 					
 					<p>We saw you coming and made a special price just for you! That's the quality service you can expect from our friendly staff.</p>
+				
+				
+          <?php 
+            $data = file_get_contents("http://comp2203.ecs.soton.ac.uk/labs/lab3/api/location.php?location=3772");
+            $weather = json_decode($data);
+          ?>
+				
+          <pre>
+            <?php print_r($weather);
+                       
+            
+            ?>
+          </pre>
+          
+          <?php
+            echo("The name is ".$weather->name." the country is ".$weather->country." the speed is ".$weather->weather->wind->speed);
+          ?>
+				
 				</div>
 				
 				<!-- sidebar -->
@@ -72,8 +89,9 @@
 			
 			<!-- footer -->
 			<div id="footer" class="row">
-				<p class="col-md-offset-1 text-muted">Designed by Boyd's Artistic Design Company &copy; 2013</p>
-			</div><!-- /footer -->
+        <?php echo footer(); ?>
+      </div>
+			<!-- /footer -->
 			
 			
 		</div><!-- /container -->

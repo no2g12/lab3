@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include ("includes/functions.php"); ?>
+<?php include ("includes/header.php"); ?>
+<?php include ("includes/footer.php"); ?>
+<?php include ("includes/menu.php"); ?>
 <html>
     <?php echo(head("Boyd's Used Motors")); ?>
 		
@@ -30,10 +32,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="nav nav-tabs">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="finances.html">Finances</a></li>
-							<li><a href="about.html">About</a></li>
-							<li class="active"><a href="contact.html">Contact Us</a></li>
+							<?php echo menu("contact"); ?>
 						</ul>
 					</div>
 				</div>
@@ -62,8 +61,9 @@
 			
 			<!-- footer -->
 			<div id="footer" class="row">
-				<p class="col-md-offset-1 text-muted">Designed by Boyd's Artistic Design Company &copy; 2013</p>
-			</div><!-- /footer -->
+        <?php echo footer(); ?>
+      </div>
+			<!-- /footer -->
 			
 			
 		</div><!-- /container -->
